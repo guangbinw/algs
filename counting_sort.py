@@ -40,6 +40,20 @@ def counting_sort_ext(A,B):
     B = [v + min for v in A]
 
 
+def counting_sort_ext2(A,B,k):
+    #counting
+    C = [0] * k
+
+    for v in A:
+        C[v] = C[v] + 1
+    
+    tmp = list()
+    for i in range(k):
+        tmp = tmp + [i] * C[i] # C[i] = count of i
+
+    B = tmp
+
+
 vals = [1,3,4,2,7]
 result = [0] * len(vals)
 counting_sort(vals,result,8)
@@ -48,10 +62,16 @@ print(result)
 counting_sort_ext(vals,result)
 print(result)
 
+counting_sort_ext2(vals,result,8)
+print(result)
+
 vals = [6,3,4,2,7,34,51,2,8,5,4,34]
 result = [0] * len(vals)
 counting_sort(vals,result,52)
 print(result)
 
 counting_sort_ext(vals,result)
+print(result)
+
+counting_sort_ext2(vals,result,52)
 print(result)
