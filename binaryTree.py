@@ -85,8 +85,12 @@ class BinaryTree():
         if node == None:
             self.root = child
 
-        if child.p == None:
-            child.p = node
-            return node
+        if node.left == None:
+            node.left = child
+        elif node.right == None:
+            node.right = child
         else:
             return None
+
+        child.p = node
+        return node
